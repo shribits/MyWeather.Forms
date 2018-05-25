@@ -74,7 +74,6 @@ signing/
 https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/app_distribution/ad-hoc-distribution/
 6) Enable distribution to distribute the app
 
-
 https://docs.microsoft.com/en-us/appcenter/build/connect
 
 
@@ -119,8 +118,48 @@ use: https://docs.microsoft.com/en-us/appcenter/test-cloud/preparing-for-upload/
 **Challenge:** Integrate your testing as part of your CI/CD process, where tests will launch after Build is completed. (HINT: App Center lacks the ability to toggle a setting for integration of Build->Test but this can be done in other ways)
 use : https://docs.microsoft.com/en-us/appcenter/build/xamarin/
 
+## Challenge 3- Diagnostics
+*Est. Time to Complete: 90 min*
 
-## Challenge 3- Push
+use : https://docs.microsoft.com/en-us/appcenter/crashes/ & https://docs.microsoft.com/en-us/appcenter/errors/
+
+DROID
+1. Add nuget packages
+- Microsoft.AppCenter
+- Microsoft.AppCenter.Analytics - Microsoft.AppCenter.Crashes 
+2. Go to MainActivity.cs and add the code below in the 
+
+OnCreate Method 
+AppCenter.Start(“<app secret from app center>", typeof(Analytics), typeof(Crashes));
+
+iOS
+1. Add nuget packages
+- Microsoft.AppCenter
+- Microsoft.AppCenter.Analytics - Microsoft.AppCenter.Crashes 
+2. Go to AppDelegate.cs and add the code below in the OnCreate Method
+AppCenter.Start("<app secret from app center>", typeof(Analytics), typeof(Crashes));
+
+### 3.1 Crash Reporting and Bug Tracking (60 min)
+
+**Scenario:** Your app is tested, verified and successfully published, but now you are getting reports of crashes from the users. You need better metrics and insight on when these crashes take place, and as much detail about them as possible. Additionally you want to have it integrated into your own bug tracking process to ensure proper workflow and signoff when issues are resolved.
+
+**Challenge:** Add crash reporting to your application and connect it to the GitHub issue tracker (in your forked repo). Trigger a couple of crashes within your app, ensure the workflow has been established.
+
+### Challenge 3.2 Crash Triage
+
+**Scenario:** Your app has been live for a few weeks now, and you have some crash reports. Your job is to figure out best next steps to improve the quality of your app.
+
+**Challenge:** Determine which crashes you will fix first and why. Describe your algorithm for prioritizing crashes. Make sure you investigate all the diagnostic information available to you in the crash logs. 
+
+**FYI** : iOS detailed crash report with dSYM
+Create a ZIP file for the dSYM package on your Mac.
+Go to App Center and select your app.
+Navigate to the Diagnostics section from the left menu, then navigate to Symbols under this section.
+Click Upload symbols in the top right corner and upload the zip file.
+After the zip file is indexed by App Center new incoming crashes will be symbolicated.
+
+
+## Challenge 4- Push
 *Est Time to Complete: 45 min*
 
 **Scenario:** You have noticed some general usage trends with your application, and want to send a targeted push notification that includes a thank you to your active users, as well as a promo for an upcoming event. You need to create some segmented messaging based on your audiences.
@@ -128,23 +167,8 @@ use : https://docs.microsoft.com/en-us/appcenter/build/xamarin/
 **Challenge:** Set up push notifications for your application, create a push campaign and send the notification. Send a push, send an event when acknowledged.
 
 use : https://docs.microsoft.com/en-us/appcenter/push/ 
+https://openapi.appcenter.ms/#/push 
 
-## Challenge 4- Diagnostics
-*Est. Time to Complete: 90 min*
-
-use : https://docs.microsoft.com/en-us/appcenter/crashes/ & https://docs.microsoft.com/en-us/appcenter/errors/
-
-### 4.1 Crash Reporting and Bug Tracking (60 min)
-
-**Scenario:** Your app is tested, verified and successfully published, but now you are getting reports of crashes from the users. You need better metrics and insight on when these crashes take place, and as much detail about them as possible. Additionally you want to have it integrated into your own bug tracking process to ensure proper workflow and signoff when issues are resolved.
-
-**Challenge:** Add crash reporting to your application and connect it to the GitHub issue tracker (in your forked repo). Trigger a couple of crashes within your app, ensure the workflow has been established.
-
-### Challenge 4.2 Crash Triage
-
-**Scenario:** Your app has been live for a few weeks now, and you have some crash reports. Your job is to figure out best next steps to improve the quality of your app.
-
-**Challenge:** Determine which crashes you will fix first and why. Describe your algorithm for prioritizing crashes. Make sure you investigate all the diagnostic information available to you in the crash logs. 
 
 ## Challenge 5- Analytics & Azure App Insights
 *Est Time to Complete: 90 min*
@@ -154,6 +178,7 @@ use : https://docs.microsoft.com/en-us/appcenter/crashes/ & https://docs.microso
 **Scenario:** With your recently launched app, you want to understand how your app is being used, and if functionality is begin discovered. Additionally you would like greater insight on device usage trends and general session information
 
 **Challenge:** Enable analytics and add manual event tracking to your application, and track the results after a few use cases. Add custom properties to one of the events.
+
 
 ### Challenge 5.2- App Insights
 
