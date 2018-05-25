@@ -54,6 +54,27 @@ https://www.visualstudio.com/app-center/
 
 **Challenge:** Connect App Center to your GitHub repository, configure a continuous build whenever code is submitted that includes a launch test and automatic distribution to a beta test group. Include yourself in the beta test group. Verify everything builds and is distributed. 
 
+**Droid**
+1) Login to appcenter
+2) Go to Android app and build steps
+3) Create new build definition for android
+4) Connect to your VSTS repository and branch/github repository
+5) Create a new keystore for android
+https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/
+signing/
+6) Follow steps above that will generate a local key and you can upload that. 
+7) Enable distribution to distribute the app
+
+**iOS**
+1) Login to appcenter
+2) Go to iOS app and build steps
+3) Create new build definition for iOS
+4) Connect to your VSTS repository and branch/github repository
+5) Use your developer certificate p12 and provision profile to sign the build
+https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/app_distribution/ad-hoc-distribution/
+6) Enable distribution to distribute the app
+
+
 https://docs.microsoft.com/en-us/appcenter/build/connect
 
 
