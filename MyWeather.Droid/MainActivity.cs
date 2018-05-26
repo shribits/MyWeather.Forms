@@ -30,7 +30,7 @@ namespace MyWeather.Droid
 		    Forms.Init(this, bundle);
 		
 		    LoadApplication(new App());
-            Crashes.GenerateTestCrash();
+            //Crashes.GenerateTestCrash();
             
         }
 
