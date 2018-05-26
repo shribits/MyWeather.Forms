@@ -30,5 +30,10 @@ namespace MyWeather.UITest
         {
             app.Screenshot("First screen.");
         }
+        [Test]
+        public void Placename_doesnotexist_error()
+        {
+            app.Repl();
+        }
     }
 }

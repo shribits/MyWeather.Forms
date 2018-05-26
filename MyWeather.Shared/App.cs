@@ -33,6 +33,7 @@ namespace MyWeather
         protected override void OnStart()
         {
             base.OnStart();
+
             WriteLine("Application OnStart");
         }
 

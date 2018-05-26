@@ -3,6 +3,9 @@ using System;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace MyWeather.iOS
 {
@@ -16,7 +19,11 @@ namespace MyWeather.iOS
 		{
             Forms.Init();
 
+            Microsoft.AppCenter.AppCenter.Start("7bca04b2-89f7-4f36-8a6c-25c9a7e628a5", typeof(Analytics), typeof(Crashes));
             LoadApplication(new App());
+            Crashes.GenerateTestCrash();
+            AppCenter.LogLevel = LogLevel.Verbose;
+
 
             return base.FinishedLaunching(app, options);
         }
