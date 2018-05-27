@@ -4,6 +4,7 @@
           package="com.refractored.myweather" 
           android:installLocation="auto" 
           android:versionCode="1"
+	  android:debuggable="false"
           android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="24" />
 	<uses-permission android:name="android.permission.INTERNET" />
